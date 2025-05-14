@@ -1,6 +1,7 @@
 import "@/assets/styles/global.css";
 
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata = {
   title: "Property Pulse",
@@ -11,9 +12,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body suppressHydrationWarning={true}>
         <Navbar />
-        {children}
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
