@@ -17,6 +17,9 @@ const ProfilePage = async () => {
 
     const properties = await Property.find({ owner: userId }).lean();
     const cleanedProperties = properties.map((property) => JSON.parse(JSON.stringify(property)));
+    if (!cleanedProperties) {
+        return <h1 className="text-center text-2xl font-bold mt-10">Property Not Found</h1>;
+    }
 
     return (
         <section className="bg-blue-50">
